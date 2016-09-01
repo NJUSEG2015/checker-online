@@ -39,4 +39,4 @@ def upload_file():
     </form>
     '''
 if __name__ == "__main__":
-    a
+    app.run()
