@@ -1,0 +1,31 @@
+<!doctype html>
+<title>index</title>
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='normalize.css')}}">
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='skeleton.css')}}">
+<div class="container">
+    <div class="blank" style="margin-top: 100px"></div>
+    <div class="row">
+        <div class="three columns">
+            <div><h5><a href="#" onclick="show('overview')">Overview</a></h5></div>
+            <div><h6><a href="#" onclick="show('recursive')">Recursive Call</a></h6></div>
+            <div><h6><a href="#" onclick="show('array')">Array Bound</a></h6></div>
+            <div><h6><a href="#" onclick="show('divide')">Divide</a></h6></div>
+        </div>
+        <div class="nine columns">
+            <div name="checker" id="overview" style="display: none">overview</div>
+            <div name="checker" id="recursive" style="display: none">content1</div>
+            <div name="checker" id="array" style="display: none">content2</div>
+            <div name="checker" id="divide" style="display: none">content3</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+function show(id) {
+    var checkers = document.getElementsByName("checker");
+    for (var i = 0; i < checkers.length; i++) {
+        checkers[i].style.display = 'none';
+    }
+    document.getElementById(id).style.display = '';
+}
+</script>
