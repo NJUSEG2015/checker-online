@@ -2,6 +2,7 @@
 <title>index</title>
 <link rel=stylesheet type=text/css href="{{url_for('static', filename='normalize.css')}}">
 <link rel=stylesheet type=text/css href="{{url_for('static', filename='skeleton.css')}}">
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='checker_online.css')}}">
 <div class="container">
     <div class="blank" style="margin-top: 100px"></div>
     <div class="row">
@@ -13,9 +14,48 @@
         </div>
         <div class="nine columns">
             <div name="checker" id="overview" style="display: none">overview</div>
-            <div name="checker" id="recursive" style="display: none">content1</div>
+            <div name="checker" id="recursive" style="display: none">
+                <table class="error_list">
+                    <thead>
+                        <tr>
+                            <th>Checker</th>
+                            <th>Function</th>
+                            <th>File</th>
+                            <th>Line</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for error in errors %}
+                            <tr>
+                                <td>{{error.checker}}</td>
+                                <td>{{error.function}}</td>
+                                <td>{{error.file}}</td>
+                                <td>{{error.line}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             <div name="checker" id="array" style="display: none">content2</div>
             <div name="checker" id="divide" style="display: none">content3</div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <button class="accordion">Section 1</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <button class="accordion">Section 2</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <button class="accordion">Section 3</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
         </div>
     </div>
 </div>
@@ -27,5 +67,15 @@ function show(id) {
         checkers[i].style.display = 'none';
     }
     document.getElementById(id).style.display = '';
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
 }
 </script>

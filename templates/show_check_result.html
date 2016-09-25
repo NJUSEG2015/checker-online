@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for error in errors%}
+            <li>{{ error.checker}}</li>
+        {% endfor %}
+    </ul>
+    <div class="container">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="one column">One</div>
+        <div class="eleven columns">Eleven</div>
+      </div>
+
+      <!-- just use a number and class 'column' or 'columns' -->
+      <div class="row">
+        <div class="two columns">Two</div>
+        <div class="ten columns">Ten</div>
+      </div>
+
+      <!-- there are a few shorthand columns widths as well -->
+      <div class="row">
+        <div class="one-third column">1/3</div>
+        <div class="two-thirds column">2/3</div>
+      </div>
+      <div class="row">
+        <div class="one-half column">1/2</div>
+        <div class="one-half column">1/2</div>
+      </div>
+
+    </div>
+
+</body>
+</html>
